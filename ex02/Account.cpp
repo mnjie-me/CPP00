@@ -6,7 +6,7 @@
 /*   By: mari-cruz <mari-cruz@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 10:59:16 by mari-cruz         #+#    #+#             */
-/*   Updated: 2025/11/18 12:58:45 by mari-cruz        ###   ########.fr       */
+/*   Updated: 2025/12/10 18:31:43 by mari-cruz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ Account::Account (int initial_deposit)
 	_totalAmount += _amount;
 	_displayTimestamp();
 	std::cout << "index:" << _accountIndex
-	<< ";total:" << _totalAmount
+	<< ";total:" << _amount
 	<< ";created" << std::endl;
 }
 Account::~Account(void)
 {
 	_displayTimestamp();
 	std::cout << "index:" << _accountIndex
-	<< ";total:" << _totalAmount
+	<< ";total:" << _amount
 	<< ";closed" << std::endl;
 }
 
@@ -67,16 +67,16 @@ bool Account::makeWithdrawal(int withdrawal)
 	}
 	else
 	{
-		_amount -= withdrawal;
+		p_amount -= withdrawal;
 		_nbWithdrawals += 1;
 		_totalAmount -= withdrawal;
 		_totalNbWithdrawals += 1;
 		_displayTimestamp();
 		std::cout << "index:" << _accountIndex
 		<< ";p_amount:" << p_amount
-		<< ";withdrawal;" << withdrawal
-		<< ";amount:" << _amount
-		<< ";nb_withdrawals;" << _nbWithdrawals
+		<< ";withdrawal:" << withdrawal
+		<< ";amount:" << p_amount
+		<< ";nb_withdrawals:" << _nbWithdrawals
 		<< std::endl;
 		return (true);
 	}
